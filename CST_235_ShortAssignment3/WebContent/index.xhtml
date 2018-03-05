@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Credit Card Validation</title>
+</head>
+  <style>
+  
+		  *{
+		  		font-family: Arial, sans-serif;
+		  }
+		  
+           label {	
+                font-weight: bold;
+                display: block;
+                margin-top: 10px;
+            }
+            
+            .error {
+                color: red;
+                font-weight: bold;
+                display: block;
+                margin-top: 10px;
+            }
+            
+            .valid {
+                color: green;
+                font-weight: bold;
+                display: block;
+                margin-top: 10px;
+            }
+  </style>
+
+<body>
+	<h:form>
+	 		<h3>Enter your Credit Card Information</h3>
+            
+            <label>First Name:</label>
+            <h:outputText value="#{validator.firstNameFail}" class="error"/>
+            <h:inputText value="#{validator.firstName}"/>
+            
+            <label>Last Name:</label>
+            <h:outputText value="#{validator.lastNameFail}" class="error"/>
+            <h:inputText value="#{validator.lastName}"/>
+            
+            <label>Address:</label>
+            <h:outputText value="#{validator.addressFail}" class="error"/>
+            <h:inputText value="#{validator.address}"/>
+            
+            <label>City:</label>
+            <h:outputText value="#{validator.cityFail}" class="error"/>
+            <h:inputText value="#{validator.city}"/>
+            
+            <label>State:</label>
+            <h:outputText value="#{validator.stateFail}" class="error"/>
+            <h:inputText value="#{validator.state}"/>
+            
+            <label>Zip:</label>
+            <h:outputText value="#{validator.zipFail}" class="error"/>
+            <h:inputText value="#{validator.zip}"/>
+            
+            <label>Card Number:</label>
+            <h:outputText value="#{validator.cardNumberFail}" class="error"/>
+            <h:inputText value="#{validator.cardNumber}"/>
+	
+			<label>Exp Dates:</label>
+            <h:outputText value="#{validator.expDateFail}" class="error"/>
+            <label>Two digit month: <h:inputText value="#{validator.expMonth}" /></label>
+           <label> Two digit year:<h:inputText value="#{validator.expYear}" /></label>
+            <label>Three digit code:<h:inputText value="#{validator.securityCode}" /><br /></label>
+            
+           
+            
+            <h:outputText value="#{validator.cardFail}" class="error"/>
+            <h:outputText value="#{validator.cardPass}" class="valid"/>
+			<h:commandButton id="submit" value="submit" action="#{validator.doValid}"></h:commandButton>
+			
+	</h:form>
+</body>
+</html>
